@@ -26,10 +26,10 @@ app.get('/products', async(req, res) =>{
 
 app.put('/product/:id', async(req, res)=>{
   const {id} = req.params
-  const {name, description, price, image} = req.body
+  const {name, price, image} = req.body
   const product = await prisma.product.update({
     where:{id: Number(id)},
-    data:{name, description, price, image}
+    data:{name, price, image}
   })
   res.json(product)
 })
